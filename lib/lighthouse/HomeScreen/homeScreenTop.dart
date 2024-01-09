@@ -35,7 +35,7 @@ class HomeScreenTop extends StatelessWidget {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            const Color.fromARGB(255, 172, 154, 249),
+                            Color(0xFFAC9AF9),
                         minimumSize: const Size(320, 80)),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(

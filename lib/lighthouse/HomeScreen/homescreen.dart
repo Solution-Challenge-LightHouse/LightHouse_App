@@ -3,6 +3,7 @@ import 'package:flutterlogin/lighthouse/HomeScreen/appbar.dart';
 
 import 'package:flutterlogin/lighthouse/HomeScreen/drawer.dart';
 import 'package:flutterlogin/lighthouse/HomeScreen/homeScreenBottom.dart';
+
 import 'package:flutterlogin/lighthouse/HomeScreen/homeScreenTop.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,12 +14,16 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: renderAppBar(),
       drawer: const drawer(),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HomeScreenTop(),
-          SizedBox(height: 10),
-          HomeScreenBottom(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Image.asset('asset/img/logo/lighthouse.png'),
+          ),
+          const HomeScreenTop(),
+          const SizedBox(height: 10),
+          const HomeScreenBottom(),
         ],
       ),
     );

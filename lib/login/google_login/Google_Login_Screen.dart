@@ -1,10 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterlogin/login/main_login/auth.dart';
+import 'package:flutterlogin/login/main_login/login_page.dart';
+import 'package:flutterlogin/login/main_login/register_page.dart';
 import 'package:sign_in_button/sign_in_button.dart';
-import 'package:flutterlogin/login/main_login/splah_screen.dart';
 
 class GoogleLoginpage extends StatefulWidget {
-  const GoogleLoginpage({Key? key}) : super(key: key);
+  const GoogleLoginpage({
+    Key? key,
+  }) : super(
+          key: key,
+        );
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -61,14 +67,14 @@ class _HomePageState extends State<GoogleLoginpage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
+            const SizedBox(
               height: 100,
               width: 100,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(_user!.photoURL!),
-                ),
-              ),
+              // decoration: BoxDecoration(
+              //   image: DecorationImage(
+              //     image: NetworkImage(_user!.photoURL!),
+              //   ),
+              // ),
             ),
             Text(_user!.email!),
             Text(_user!.displayName ?? ""),
@@ -85,8 +91,8 @@ class _HomePageState extends State<GoogleLoginpage> {
                   backgroundColor: const Color.fromARGB(255, 172, 154, 249),
                   minimumSize: const Size(320, 80)),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const SplashScreen()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => const AuthPage()));
               },
               child: const Text(
                 '시작하기',
