@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterlogin/component/text_box.dart';
+import 'package:flutterlogin/lighthouse/HomeScreen/appbar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -63,13 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'profile page',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Colors.grey[900],
-      ),
+      appBar: renderAppBar(),
       body: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
               .collection('Users')
@@ -82,6 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
               return ListView(
                 children: [
+                  const SizedBox(height: 80),
                   //profile pic
                   const Icon(
                     Icons.person,
