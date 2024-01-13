@@ -10,7 +10,7 @@ class mathproblemmain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: renderAppBar(),
-      drawer: const drawer(),
+      drawer: drawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(

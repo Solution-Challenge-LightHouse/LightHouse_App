@@ -21,6 +21,6 @@ class Middle1_1 extends StatelessWidget {
               IconButton(
                   onPressed: () {}, icon: const Icon(Icons.notifications)),
             ]),
-        drawer: const drawer());
+        drawer: drawer());
   }
 }

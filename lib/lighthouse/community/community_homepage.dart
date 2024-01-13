@@ -46,7 +46,7 @@ class _HomePageState extends State<CommunityHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: renderAppBar(),
-      drawer: const drawer(),
+      drawer: drawer(),
       body: Center(
         child: Column(
           children: [

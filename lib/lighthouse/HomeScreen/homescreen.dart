@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: renderAppBar(),
-      drawer: const drawer(),
+      drawer: drawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
