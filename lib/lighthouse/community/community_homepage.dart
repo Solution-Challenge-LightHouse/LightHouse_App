@@ -1,21 +1,13 @@
 import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
 import 'package:lighthouse/lighthouse/community/add_page.dart';
 import 'package:lighthouse/lighthouse/community/community_detailpage.dart';
-
-//https://api.nstack.in/#/
 
 class CommunityHomePage extends StatefulWidget {
   const CommunityHomePage({super.key});
@@ -31,7 +23,6 @@ class _TodoListPageState extends State<CommunityHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     fetchTodo();
@@ -53,17 +44,14 @@ class _TodoListPageState extends State<CommunityHomePage> {
             onRefresh: fetchTodo,
             child: ListView.builder(
                 itemCount: items.length,
-                // 각 항목 사이에 Divider를 추가합니다.
                 itemBuilder: (context, index) {
                   final item = items[index] as Map;
                   final id = item['id'];
-                  int score = item['userLevel']; // item['score']에 들어있는 정수 값
+                  int score = item['userLevel'];
                   String scoreStr = score.toString();
 
                   return GestureDetector(
                     onTap: () {
-                      // ListTile을 탭할 때의 동작을 정의합니다.
-                      // 여기서는 상세 정보 페이지로 이동하도록 예시로 작성했습니다.
                       navigateToDetailPage(item, id);
                     },
                     child: Card(
@@ -74,7 +62,7 @@ class _TodoListPageState extends State<CommunityHomePage> {
                             'https://publicdomainvectors.org/photos/abstract-user-flat-1.png',
                             width: 30,
                             height: 30,
-                            fit: BoxFit.cover, // 이미지를 원형 영역에 맞추기 위해 cover로 설정
+                            fit: BoxFit.cover,
                           ),
                         ),
                         title: Text(item['title']),
@@ -93,11 +81,6 @@ class _TodoListPageState extends State<CommunityHomePage> {
     );
   }
 
-  // Future<String?> getToken() async {
-  //   String? token = await storage.read(key: ACCESS_TOKEN_KEY);
-  //   return token;
-  // }
-
   Future<void> navigateEditPage(Map item) async {
     final route = MaterialPageRoute(builder: (_) => AddTodoPage(todo: item));
 
@@ -114,21 +97,6 @@ class _TodoListPageState extends State<CommunityHomePage> {
     setState(() {
       isLoding = false;
     });
-  }
-
-  Future<void> deleteById(String id) async {
-    final url = 'https://api.nstack.in/v1/todos/$id';
-    final uri = Uri.parse(url);
-
-    final response = await http.delete(uri);
-    if (response.statusCode == 200) {
-      final filtered = items.where((element) => element['id'] != id).toList();
-      setState(() {
-        items = filtered;
-      });
-    } else {
-      showErrorMessage('Deletion failed');
-    }
   }
 
   Future<void> fetchTodo() async {
@@ -177,7 +145,7 @@ class _TodoListPageState extends State<CommunityHomePage> {
               idid: id,
             ));
     await Navigator.push(context, route);
-    // 상세 정보 페이지에서 돌아왔을 때 다시 데이터를 불러오도록 설정
+
     setState(() {
       isLoding = true;
     });

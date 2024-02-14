@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:ffi';
-
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
@@ -25,17 +23,10 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
   late int id;
   late Map todo;
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   fetchTodo();
-  // }
-
   @override
   Widget build(BuildContext context) {
-    int score = widget.todo['score']; // item['score']에 들어있는 정수 값
-    String scoreStr = score.toString(); // 정수를 문자열로 변환
+    int score = widget.todo['score'];
+    String scoreStr = score.toString();
     return Scaffold(
       appBar: renderAppBar('Community'),
       body: SingleChildScrollView(
@@ -56,7 +47,6 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
                     style: const TextStyle(fontSize: 25),
                   ),
                 ),
-
                 Visibility(
                   visible: widget.todo['imgPath'] != "",
                   child: SizedBox(
@@ -70,7 +60,6 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 15),
                 Text(
                   '${widget.todo['content']}',
@@ -83,7 +72,6 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
                       '${widget.todo['multipleChoice']}',
                       style: const TextStyle(fontSize: 20),
                     )),
-
                 const SizedBox(
                   height: 15,
                 ),
@@ -131,8 +119,6 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
                     ],
                   ),
                 )
-
-                // Add more information as needed
               ],
             ),
           ),
@@ -148,14 +134,15 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
       "mathanswer": mathanswer,
     };
 
-    const url = 'https://52.79.242.2:8080/submissions/save/1';
+    final url =
+        'https://52.79.242.2:8080/submissions/save/${widget.todo['id']}';
     final uri = Uri.parse(url);
     final response = await http.post(uri, body: jsonEncode(body));
 
     if (response.statusCode == 201) {
-      showSuccessMessage('Correct!'); // 성공 다이얼로그 표시
+      showSuccessMessage('Correct!');
     } else {
-      showErrorMessage('Wrong!'); // 실패 다이얼로그 표시
+      showErrorMessage('Wrong!');
     }
   }
 
@@ -169,7 +156,7 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // 다이얼로그 닫기
+                Navigator.of(context).pop();
               },
               child: const Text('OK'),
             ),
@@ -189,7 +176,7 @@ class _CommunityDetailPageState extends State<Middle1_1_detail> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // 다이얼로그 닫기
+                Navigator.of(context).pop();
               },
               child: const Text('OK'),
             ),

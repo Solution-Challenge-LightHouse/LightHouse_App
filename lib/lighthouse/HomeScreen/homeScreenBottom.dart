@@ -95,7 +95,7 @@ class _HomeScreenBottomState extends State<HomeScreenBottom> {
     if (response.statusCode == 200) {
       final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
       setState(() {
-        items = json; // items 업데이트
+        items = json;
       });
     }
   }
@@ -108,6 +108,5 @@ class _HomeScreenBottomState extends State<HomeScreenBottom> {
       ),
     );
     await Navigator.push(context, route);
-    // 상세 정보 페이지에서 돌아왔을 때 다시 데이터를 불러오도록 설정
   }
 }

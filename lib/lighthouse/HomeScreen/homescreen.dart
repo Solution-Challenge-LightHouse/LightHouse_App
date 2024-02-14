@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
-import 'package:lighthouse/lighthouse/HomeScreen/drawer.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/homeScreenBottom.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/homeScreenTop.dart';
 import 'package:lighthouse/lighthouse/community/community_homepage.dart';

@@ -1,11 +1,7 @@
 import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
 import 'package:lighthouse/lighthouse/community/add_page.dart';

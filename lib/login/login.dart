@@ -1,17 +1,13 @@
 import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lighthouse/component/button.dart';
 import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/data.dart';
-
 import 'package:lighthouse/login/userdata_register.dart';
 import 'package:lighthouse/login/userdata_register2.dart';
 import 'package:lighthouse/root_tab.dart';
@@ -34,7 +30,6 @@ class _Loginpage22State extends State<LoginPage> {
     final body = {
       "email": useremail,
       "password": userpassword,
-      // "is_completed": false,
     };
     const url = 'http://52.79.242.2:8080/auth/login';
     final uri = Uri.parse(url);
@@ -71,8 +66,6 @@ class _Loginpage22State extends State<LoginPage> {
                 title: Text(message),
               ));
     }
-
-    //user sign in
 
     return Scaffold(
       backgroundColor: Colors.grey[300],

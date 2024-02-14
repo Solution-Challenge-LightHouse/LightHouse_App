@@ -10,7 +10,5 @@ AppBar? renderAppBar(String title) {
       title,
       style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
     ),
-    // actions: [
-    //   IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),]
   );
 }

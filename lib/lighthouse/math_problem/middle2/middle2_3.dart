@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
@@ -33,8 +27,6 @@ class _TodoListPageState extends State<Middle2_3> {
     super.initState();
     fetchTodo();
   }
-  //이 코드는 isLoding 변수의 값에 따라 보여줄 내용을 결정하는데, isLoding이 true이면 자식 위젯을 보여주고, false이면 RefreshIndicator를 보여줍니다.
-  //사용자가 RefreshIndicator를 '당기면' fetchTodo 함수를 호출하여 새로운 데이터를 가져옵니다
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +40,11 @@ class _TodoListPageState extends State<Middle2_3> {
             onRefresh: fetchTodo,
             child: ListView.builder(
                 itemCount: items.length,
-                // 각 항목 사이에 Divider를 추가합니다.
                 itemBuilder: (context, index) {
                   final item = items[index] as Map;
                   final id = item['id'];
-                  int score = item['score']; // item['score']에 들어있는 정수 값
-                  String scoreStr = score.toString(); // 정수를 문자열로 변환
+                  int score = item['score'];
+                  String scoreStr = score.toString();
                   return GestureDetector(
                     onTap: () {
                       navigateToDetailPage(item, id);
@@ -134,7 +125,7 @@ class _TodoListPageState extends State<Middle2_3> {
               idid: id,
             ));
     await Navigator.push(context, route);
-    // 상세 정보 페이지에서 돌아왔을 때 다시 데이터를 불러오도록 설정
+
     setState(() {
       isLoding = true;
     });

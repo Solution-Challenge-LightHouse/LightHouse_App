@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart%20';
 import 'package:lighthouse/data.dart';
 
 class CommentEditPage extends StatefulWidget {
@@ -54,7 +52,6 @@ class _AddTodoPageState extends State<CommentEditPage> {
     final description = descriptionController.text;
     final body = {
       "content": description,
-      // "is_completed": false,
     };
     final url = 'http://52.79.242.2:8080/comments/save/${widget.id}';
     final uri = Uri.parse(url);

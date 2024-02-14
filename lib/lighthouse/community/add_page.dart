@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart%20';
 import 'package:lighthouse/data.dart';
 
 class AddTodoPage extends StatefulWidget {
@@ -21,7 +19,6 @@ class _AddTodoPageState extends State<AddTodoPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     final todo = widget.todo;
     if (todo != null) {
@@ -84,9 +81,8 @@ class _AddTodoPageState extends State<AddTodoPage> {
     final body = {
       "title": title,
       "content": description,
-      // "is_completed": false,
     };
-    //summit updated data to the server
+
     final url = 'http://52.79.242.2:8080/posts/update/$strid';
     final uri = Uri.parse(url);
     final response = await http.patch(uri, body: jsonEncode(body), headers: {
@@ -108,7 +104,6 @@ class _AddTodoPageState extends State<AddTodoPage> {
     final body = {
       "title": title,
       "content": description,
-      // "is_completed": false,
     };
     const url = 'http://52.79.242.2:8080/posts/save';
     final uri = Uri.parse(url);

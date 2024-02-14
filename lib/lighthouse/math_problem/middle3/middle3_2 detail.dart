@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/data.dart';
@@ -26,17 +23,10 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
   late int id;
   late Map todo;
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   fetchTodo();
-  // }
-
   @override
   Widget build(BuildContext context) {
-    int score = widget.todo['score']; // item['score']에 들어있는 정수 값
-    String scoreStr = score.toString(); // 정수를 문자열로 변환
+    int score = widget.todo['score'];
+    String scoreStr = score.toString();
     return Scaffold(
       appBar: renderAppBar('Community'),
       body: SingleChildScrollView(
@@ -57,7 +47,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                     style: const TextStyle(fontSize: 25),
                   ),
                 ),
-
                 Visibility(
                   visible: widget.todo['imgPath'] != "",
                   child: SizedBox(
@@ -71,7 +60,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 15),
                 Text(
                   '${widget.todo['content']}',
@@ -84,7 +72,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                       '${widget.todo['multipleChoice']}',
                       style: const TextStyle(fontSize: 20),
                     )),
-
                 const SizedBox(
                   height: 15,
                 ),
@@ -122,8 +109,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                     ],
                   ),
                 )
-
-                // Add more information as needed
               ],
             ),
           ),
@@ -150,7 +135,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
   }
 
   Future<void> submitData() async {
-    // Correcting the URL string using string interpolation
     final url = 'http://52.79.242.2:8080/submissions/save/${widget.todo['id']}';
 
     final uri = Uri.parse(url);
@@ -162,7 +146,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
       "userAnswer": mathanswer,
     };
 
-    // Uncommenting the HTTP request
     final response = await http.post(
       uri,
       body: jsonEncode(body),
@@ -173,7 +156,6 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
     );
 
     if (response.statusCode == 200) {
-      // Check if the submitted answer is correct
       if (mathanswer == widget.todo["correct"]) {
         showSuccessMessage('Correct');
       } else {

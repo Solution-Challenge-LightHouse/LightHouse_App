@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert' as convert;
 import 'dart:convert';
@@ -42,20 +41,12 @@ class _HomeScreenState extends State<Userdataregister2> {
   String userepictureurl = '';
   String userlocation = '';
 
-  //  _determinePosition();
-  //   sendTokenToServer();
-
   @override
   void initState() {
     super.initState();
-
     getplaceaddress();
-    // sendTokenToServer();
     printUserToken();
     _initUserDetails();
-
-    // _printCurrentLocation();
-    // getplaceaddress();
   }
 
   Future<void> _printCurrentLocation() async {
@@ -102,7 +93,6 @@ class _HomeScreenState extends State<Userdataregister2> {
       userepictureurl = decodedToken['picture'];
       username = decodedToken['name'];
 
-      // setState to trigger a rebuild
       setState(() {});
       print('파이어베이스 돈나가요');
     } else {
@@ -111,16 +101,12 @@ class _HomeScreenState extends State<Userdataregister2> {
   }
 
   Future<void> _initUserDetails() async {
-    printUserToken(); // 비동기 함수 호출
-    setState(() {}); // 상태 업데이트
+    printUserToken();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    // final usernameController = TextEditingController();
-    // final userageController = TextEditingController();
-    // final userschooleController = TextEditingController();
-
     return Scaffold(
       backgroundColor: const Color(0xFFF5F3FF),
       body: SingleChildScrollView(
@@ -267,13 +253,10 @@ class _HomeScreenState extends State<Userdataregister2> {
       "email": userid,
       "password": userpassword,
       "authority": role,
-
       "name": username,
       "country": userlocation,
       "age": userage,
       "school": userschool,
-
-      // "is_completed": false,
     };
     const url = 'http://52.79.242.2:8080/auth/signup';
     final uri = Uri.parse(url);

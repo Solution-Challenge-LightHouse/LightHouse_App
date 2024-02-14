@@ -1,12 +1,5 @@
-// 1 - 수와연산
-// 2 - 문자와식
-// 3 - 함수
-// 4 - 기하
-// 5 - 확률과통계
-
 import 'package:flutter/material.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
-import 'package:lighthouse/lighthouse/HomeScreen/drawer.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_1.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_all.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle2/middle2_1.dart';

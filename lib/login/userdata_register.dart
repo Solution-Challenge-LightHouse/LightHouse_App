@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert' as convert;
 import 'dart:convert';
@@ -11,7 +10,6 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/login/login.dart';
-
 import 'package:lighthouse/root_tab.dart';
 
 class Userdataregister extends StatefulWidget {
@@ -41,20 +39,12 @@ class _HomeScreenState extends State<Userdataregister> {
   String userepictureurl = '';
   String userlocation = '';
 
-  //  _determinePosition();
-  //   sendTokenToServer();
-
   @override
   void initState() {
     super.initState();
-
     getplaceaddress();
-    // sendTokenToServer();
     printUserToken();
     _initUserDetails();
-
-    // _printCurrentLocation();
-    // getplaceaddress();
   }
 
   Future<void> _printCurrentLocation() async {
@@ -110,16 +100,12 @@ class _HomeScreenState extends State<Userdataregister> {
   }
 
   Future<void> _initUserDetails() async {
-    printUserToken(); // 비동기 함수 호출
-    setState(() {}); // 상태 업데이트
+    printUserToken();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    // final usernameController = TextEditingController();
-    // final userageController = TextEditingController();
-    // final userschooleController = TextEditingController();
-
     return Scaffold(
       backgroundColor: const Color(0xFFF5F3FF),
       body: SingleChildScrollView(
@@ -139,9 +125,8 @@ class _HomeScreenState extends State<Userdataregister> {
                 const SizedBox(height: 25),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(10.0), // 둥근 정도를 조절하려면 숫자를 조정하세요
-                    color: Colors.grey.shade200, // 원하는 배경색을 설정하세요
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.grey.shade200,
                   ),
                   width: 1000,
                   height: 50,
@@ -156,9 +141,8 @@ class _HomeScreenState extends State<Userdataregister> {
                 const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(10.0), // 둥근 정도를 조절하려면 숫자를 조정하세요
-                    color: Colors.grey.shade200, // 원하는 배경색을 설정하세요
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.grey.shade200,
                   ),
                   width: 1000,
                   height: 100,
@@ -276,13 +260,10 @@ class _HomeScreenState extends State<Userdataregister> {
       "email": useremail,
       "password": userpassword,
       "authority": role,
-
       "name": username,
       "country": userlocation,
       "age": userage,
       "school": userschool,
-
-      // "is_completed": false,
     };
     const url = 'http://52.79.242.2:8080/auth/signup';
     final uri = Uri.parse(url);

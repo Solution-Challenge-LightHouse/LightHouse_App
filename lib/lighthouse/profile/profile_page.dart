@@ -1,9 +1,6 @@
 import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
@@ -31,7 +28,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     fetchTodo();
@@ -51,14 +47,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    // ClipOval(
-                    //   child: Image.network(
-                    //     userData['pictureUrl'] ?? '',
-                    //     width: 150, // 원형 이미지의 너비 설정
-                    //     height: 150, // 원형 이미지의 높이 설정
-                    //     fit: BoxFit.cover, // 이미지를 원형 영역에 맞추기 위해 cover로 설정
-                    //   ),
-                    // ),
                     Container(
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
@@ -99,7 +87,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          //sectionName
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -113,7 +100,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                     Icons.settings,
                                     color: Colors.grey[200],
                                   ))
-                              //edit button
                             ],
                           ),
                           Text(userData['email'] ?? ''),
