@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterlogin/auth.dart';
-import 'package:flutterlogin/lighthouse/HomeScreen/homescreen.dart';
-import 'package:flutterlogin/lighthouse/community/community_homepage.dart';
-import 'package:flutterlogin/lighthouse/math_problem/math_problem_main.dart';
-import 'package:flutterlogin/lighthouse/profile/profile_page.dart';
-import 'package:flutterlogin/login/google_login/Google_Login_Screen.dart';
-import 'package:flutterlogin/loginpage.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:lighthouse/lighthouse/HomeScreen/homescreen.dart';
+import 'package:lighthouse/lighthouse/community/community_homepage.dart';
+import 'package:lighthouse/lighthouse/math_problem/math_problem_main.dart';
+import 'package:lighthouse/lighthouse/profile/profile_page.dart';
+import 'package:lighthouse/login/google_loginpage.dart';
 
 class drawer extends StatelessWidget {
   drawer({
@@ -66,19 +65,19 @@ class drawer extends StatelessWidget {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('LOG OUT'),
-              onTap: () {
-                handleSignOut();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (_) => Loginpage22()),
-                    (Route<dynamic> route) => false);
-              },
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 25),
+          //   child: ListTile(
+          //     leading: const Icon(Icons.logout),
+          //     title: const Text('LOG OUT'),
+          //     onTap: () {
+          //       handleSignOut();
+          //       Navigator.of(context).pushAndRemoveUntil(
+          //           MaterialPageRoute(builder: (_) => const LoginPage()),
+          //           (Route<dynamic> route) => false);
+          //     },
+          //   ),
+          // )
         ],
       ),
     );

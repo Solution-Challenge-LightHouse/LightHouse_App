@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterlogin/lighthouse/math_problem/middle1/middle1_main.dart';
+import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_main.dart';
 
 class HomeScreenTop extends StatelessWidget {
   const HomeScreenTop({super.key});
@@ -23,7 +23,7 @@ class HomeScreenTop extends StatelessWidget {
           ),
           Container(
             height: 350,
-            width: 600,
+            width: 1000,
             decoration: BoxDecoration(
                 color: const Color(0xFFF5F3FF),
                 borderRadius: BorderRadius.circular(10)),
@@ -34,8 +34,7 @@ class HomeScreenTop extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            Color(0xFFAC9AF9),
+                        backgroundColor: const Color(0xFFAC9AF9),
                         minimumSize: const Size(320, 80)),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(

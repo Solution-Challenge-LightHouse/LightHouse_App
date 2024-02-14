@@ -1,19 +1,21 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterlogin/auth.dart';
-import 'package:flutterlogin/login/main_login/auth.dart';
+import 'package:lighthouse/firebase_options.dart';
+import 'package:lighthouse/login/auth.dart';
+
+//다른데 코드 보낼때 구글맵 api 반드시삭제 app/src/main/androidmanifest.xml
 
 void main() async {
-  // Flutter 바인딩 초기화
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Firebase 초기화
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Light House',
     home: Scaffold(
-      body: AuthPage2(),
+      body: AuthPage(),
     ),
   ));
 }
