@@ -6,17 +6,17 @@ import 'package:lighthouse/component/text_field.dart';
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
 
-class Middle1_1_detail extends StatefulWidget {
+class Middle3_6_detail extends StatefulWidget {
   final Map todo;
   int idid;
 
-  Middle1_1_detail({super.key, required this.todo, required this.idid});
+  Middle3_6_detail({super.key, required this.todo, required this.idid});
 
   @override
-  State<Middle1_1_detail> createState() => _CommunityDetailPageState();
+  State<Middle3_6_detail> createState() => _CommunityDetailPageState();
 }
 
-class _CommunityDetailPageState extends State<Middle1_1_detail> {
+class _CommunityDetailPageState extends State<Middle3_6_detail> {
   String answer = '';
   final answerController = TextEditingController();
   bool isLoding = true;

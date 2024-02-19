@@ -22,7 +22,6 @@ class _TodoListPageState extends State<Middle1_1> {
   String id = '';
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchTodo();
   }
@@ -30,7 +29,7 @@ class _TodoListPageState extends State<Middle1_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: renderAppBar('소인수분해'),
+      appBar: renderAppBar('Math Problem'),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Visibility(
@@ -90,18 +89,28 @@ class _TodoListPageState extends State<Middle1_1> {
       'Authorization': 'Bearer $accesstoken'
     });
     if (response.statusCode == 200) {
-      final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
-      final result = json;
-      print('소인수 분해');
-      setState(() {
-        items = result;
+      String? accesstoken = await getToken();
+      const url =
+          'http://52.79.242.2:8080/examples/find?grade=1&category=소인수 분해';
+      final uri = Uri.parse(url);
+      final response = await http.get(uri, headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer $accesstoken'
       });
+      if (response.statusCode == 200) {
+        final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
+        final result = json;
+
+        setState(() {
+          items = result;
+        });
+      }
     } else if (response.statusCode == 500) {
       final uri = Uri.parse(url);
       final response = await http.get(uri);
       final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
       final result = json;
-      print('소인수 분해xxxxxxx');
+
       setState(() {
         items = result;
       });

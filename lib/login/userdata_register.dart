@@ -251,7 +251,7 @@ class _HomeScreenState extends State<Userdataregister> {
 
   Future<void> submitData() async {
     final userage = userageController.text;
-    final username = userageController.text;
+    final username = usernameController.text;
 
     final userpassword = userpasswordController.text;
     final userschool = userschooleController.text;

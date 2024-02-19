@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:lighthouse/component/text_field.dart';
@@ -28,7 +29,7 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
     int score = widget.todo['score'];
     String scoreStr = score.toString();
     return Scaffold(
-      appBar: renderAppBar('Community'),
+      appBar: renderAppBar('Math Problem'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -48,15 +49,16 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                   ),
                 ),
                 Visibility(
-                  visible: widget.todo['imgPath'] != "",
+                  visible: widget.todo['imgPath'] != "" &&
+                      widget.todo['imgPath'] != null,
                   child: SizedBox(
                     width: 600,
                     height: 350,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.network(
-                        widget.todo['imgPath'],
-                      ),
+                      child: widget.todo['imgPath'] != null
+                          ? Image.network(widget.todo['imgPath'])
+                          : Container(),
                     ),
                   ),
                 ),
@@ -97,8 +99,8 @@ class _CommunityDetailPageState extends State<Middle3_2_detail> {
                         height: 15,
                       ),
                       ElevatedButton(
-                        onPressed: () {
-                          submitData();
+                        onPressed: () async {
+                          await submitData();
                         },
                         child: Text(
                           'submit',

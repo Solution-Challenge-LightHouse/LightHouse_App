@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_1_detail.dart';
-import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_all%20detail.dart';
 
 class Middle3_1 extends StatefulWidget {
   const Middle3_1({super.key});
@@ -23,7 +22,6 @@ class _TodoListPageState extends State<Middle3_1> {
   String id = '';
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchTodo();
   }
@@ -31,7 +29,7 @@ class _TodoListPageState extends State<Middle3_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: renderAppBar('Middle3_1'),
+      appBar: renderAppBar('Math Problem'),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Visibility(
@@ -56,13 +54,14 @@ class _TodoListPageState extends State<Middle3_1> {
                             const EdgeInsets.symmetric(horizontal: 8),
                         title: ClipRRect(
                           borderRadius: BorderRadius.circular(3),
-                          child:
-                              (item['imgPath'] != "" && item['imgPath'] != "@@")
-                                  ? Image.network(
-                                      item['imgPath'],
-                                      fit: BoxFit.fill,
-                                    )
-                                  : const SizedBox(),
+                          child: (item['imgPath'] != "" &&
+                                  item['imgPath'] != "@@" &&
+                                  item['imgPath'] != null)
+                              ? Image.network(
+                                  item['imgPath'],
+                                  fit: BoxFit.fill,
+                                )
+                              : const SizedBox(),
                         ),
                         subtitle: Text(
                           item['title'] + ' • ' + scoreStr + "점",
@@ -83,19 +82,41 @@ class _TodoListPageState extends State<Middle3_1> {
 
   Future<void> fetchTodo() async {
     String? accesstoken = await getToken();
-    const url = 'http://52.79.242.2:8080/examples/all';
+    const url =
+        'http://52.79.242.2:8080/examples/find?grade=3&category=제곱근과 실수';
     final uri = Uri.parse(url);
     final response = await http.get(uri, headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer $accesstoken'
     });
     if (response.statusCode == 200) {
+      String? accesstoken = await getToken();
+      const url =
+          'http://52.79.242.2:8080/examples/find?grade=3&category=제곱근과 실수';
+      final uri = Uri.parse(url);
+      final response = await http.get(uri, headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer $accesstoken'
+      });
+      if (response.statusCode == 200) {
+        final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
+        final result = json;
+
+        setState(() {
+          items = result;
+        });
+      }
+    } else if (response.statusCode == 500) {
+      final uri = Uri.parse(url);
+      final response = await http.get(uri);
       final json = jsonDecode(utf8.decode(response.bodyBytes)) as List;
       final result = json;
+
       setState(() {
         items = result;
       });
     }
+
     setState(() {
       isLoding = false;
     });
@@ -120,7 +141,7 @@ class _TodoListPageState extends State<Middle3_1> {
 
   Future<void> navigateToDetailPage(Map item, int id) async {
     final route = MaterialPageRoute(
-        builder: (_) => Middle1_all_detail(
+        builder: (_) => Middle1_1_detail(
               todo: item,
               idid: id,
             ));

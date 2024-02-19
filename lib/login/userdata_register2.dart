@@ -126,9 +126,8 @@ class _HomeScreenState extends State<Userdataregister2> {
                 const SizedBox(height: 25),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(10.0), // 둥근 정도를 조절하려면 숫자를 조정하세요
-                    color: Colors.grey.shade200, // 원하는 배경색을 설정하세요
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.grey.shade200,
                   ),
                   width: 1000,
                   height: 100,
@@ -243,7 +242,7 @@ class _HomeScreenState extends State<Userdataregister2> {
 
   Future<void> submitData() async {
     final userage = userageController.text;
-    final username = userageController.text;
+    final username = usernameController.text;
     final userid = useridController.text;
 
     final userpassword = userpasswordController.text;

@@ -7,6 +7,7 @@ import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_2.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_3.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_4.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_5.dart';
+import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_6.dart';
 
 class Middle3_Main_Screen extends StatelessWidget {
   const Middle3_Main_Screen({super.key});
@@ -102,6 +103,21 @@ class Middle3_Main_Screen extends StatelessWidget {
                               builder: (_) => const Middle3_5()));
                         },
                         child: const Text('원의 성질',
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.white)),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.purple,
+                            minimumSize: const Size(
+                              320,
+                              80,
+                            )),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => const Middle3_6()));
+                        },
+                        child: const Text('통계',
                             style:
                                 TextStyle(fontSize: 20, color: Colors.white)),
                       )

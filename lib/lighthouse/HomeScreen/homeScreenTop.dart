@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_main.dart';
+import 'package:lighthouse/lighthouse/math_problem/middle2/middle2_main.dart';
+import 'package:lighthouse/lighthouse/math_problem/middle3/middle3_main.dart';
 
 class HomeScreenTop extends StatelessWidget {
   const HomeScreenTop({super.key});
@@ -50,8 +52,11 @@ class HomeScreenTop extends StatelessWidget {
                         backgroundColor:
                             const Color.fromARGB(255, 172, 154, 249),
                         minimumSize: const Size(320, 80)),
-                    onPressed: () {},
-                    child: const Text('Middle school grade 1',
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const Middle2_Main_Screen()));
+                    },
+                    child: const Text('Middle school grade 2',
                         style: TextStyle(fontSize: 20)),
                   ),
                   ElevatedButton(
@@ -59,8 +64,11 @@ class HomeScreenTop extends StatelessWidget {
                         backgroundColor:
                             const Color.fromARGB(255, 172, 154, 249),
                         minimumSize: const Size(320, 80)),
-                    onPressed: () {},
-                    child: const Text('Middle school grade 1',
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const Middle3_Main_Screen()));
+                    },
+                    child: const Text('Middle school grade 3',
                         style: TextStyle(fontSize: 20)),
                   )
                 ],

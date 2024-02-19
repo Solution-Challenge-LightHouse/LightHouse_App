@@ -9,14 +9,14 @@ import 'package:lighthouse/data.dart';
 import 'package:lighthouse/lighthouse/HomeScreen/appbar.dart';
 import 'package:lighthouse/lighthouse/math_problem/middle1/middle1_1_detail.dart';
 
-class Middle2_3 extends StatefulWidget {
-  const Middle2_3({super.key});
+class Middle3_6 extends StatefulWidget {
+  const Middle3_6({super.key});
 
   @override
-  State<Middle2_3> createState() => _TodoListPageState();
+  State<Middle3_6> createState() => _TodoListPageState();
 }
 
-class _TodoListPageState extends State<Middle2_3> {
+class _TodoListPageState extends State<Middle3_6> {
   bool isLoding = true;
   List items = [];
   String id = '';
@@ -82,8 +82,7 @@ class _TodoListPageState extends State<Middle2_3> {
 
   Future<void> fetchTodo() async {
     String? accesstoken = await getToken();
-    const url =
-        'http://52.79.242.2:8080/examples/find?grade=2&category=삼각형과 사각형, 닮음과 피타고라스 정리';
+    const url = 'http://52.79.242.2:8080/examples/find?grade=3&category=통계';
     final uri = Uri.parse(url);
     final response = await http.get(uri, headers: {
       'Content-Type': 'application/json; charset=utf-8',
@@ -91,8 +90,7 @@ class _TodoListPageState extends State<Middle2_3> {
     });
     if (response.statusCode == 200) {
       String? accesstoken = await getToken();
-      const url =
-          'http://52.79.242.2:8080/examples/find?grade=2&category=삼각형과 사각형, 닮음과 피타고라스 정리';
+      const url = 'http://52.79.242.2:8080/examples/find?grade=3&category=통계';
       final uri = Uri.parse(url);
       final response = await http.get(uri, headers: {
         'Content-Type': 'application/json; charset=utf-8',

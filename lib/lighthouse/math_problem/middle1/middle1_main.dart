@@ -39,19 +39,6 @@ class Middle1_Main_Screen extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            minimumSize: const Size(320, 80)),
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => const Middle1_all()));
-                        },
-                        child: const Text(
-                          '모든문제',
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red,
                             minimumSize: const Size(320, 80)),
                         onPressed: () {
