@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:lighthouse/firebase_options.dart';
 import 'package:lighthouse/login/auth.dart';
 
-//다른데 코드 보낼때 구글맵 api 반드시삭제 app/src/main/androidmanifest.xml
+//I deleted the personal googlemap API because it is a code that everyone can see.
+//You must enter your Googlemap API key to use location services.
+//android/app/src/main/androidmanifest.xml
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
