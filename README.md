@@ -1,10 +1,13 @@
 # LightHouse_App
 
-A new Flutter project.
+The LightHouse is question bank and forum for education. We expact to feel joy and reduce stress for Korean and international students.
+LightHouse App gives students access to question bank and forum.
 
-## Getting Started
+## How to use the code
 
-This project is a starting point for a Flutter application.
+*Use android studio or vscode
+*Open the folder and run
+*program Execution path    -     LightHouse/lib/main 
 
 A few resources to get you started if this is your first Flutter project:
 
