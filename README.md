@@ -5,9 +5,9 @@ LightHouse App gives students access to question bank and forum.
 
 ## How to use the code
 
--Use android studio or vscode<br/>
--Open the folder and run<br/>
--program Execution path    -     LightHouse/lib/main 
+- Use android studio or vscode<br/>
+- Open the folder and run<br/>
+- program Execution path    -     LightHouse/lib/main 
 
 A few resources to get you started if this is your first Flutter project:
 
