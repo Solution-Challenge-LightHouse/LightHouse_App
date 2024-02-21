@@ -7,9 +7,14 @@ LightHouse App gives students access to question bank and forum.
 
 - Use android studio or vscode<br/>
 - Open the folder and run<br/>
-- program Execution path    -     LightHouse/lib/main 
+- program Execution path    -     LightHouse/lib/main
 
-A few resources to get you started if this is your first Flutter project:
+- I deleted the personal googlemap API because it is a code that everyone can see.
+- You must enter your Googlemap API key to use location services.
+- Googlemap API path - android/app/src/main/androidmanifest.xml
+- https://developers.google.com/maps?hl=ko
+
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
