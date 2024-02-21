@@ -6,7 +6,8 @@ LightHouse App gives students access to question bank and forum.
 ## How to use the code
 
 - Use android studio or vscode<br/>
-- Open the folder and run.    program Execution path    -     LightHouse/lib/main
+- Open the folder and run.<br/>
+     program Execution path    -     LightHouse/lib/main
 
 
 - I deleted the personal googlemap API because it is a code that everyone can see.
