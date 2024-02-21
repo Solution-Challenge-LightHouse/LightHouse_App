@@ -6,12 +6,11 @@ LightHouse App gives students access to question bank and forum.
 ## How to use the code
 
 - Use android studio or vscode<br/>
-- Open the folder and run<br/>
-- program Execution path    -     LightHouse/lib/main
+- Open the folder and run.    program Execution path    -     LightHouse/lib/main
+
 
 - I deleted the personal googlemap API because it is a code that everyone can see.
-- You must enter your Googlemap API key to use location services.
-- Googlemap API path - android/app/src/main/androidmanifest.xml
+- You must enter your Googlemap API key to use location services.  Googlemap API path - android/app/src/main/androidmanifest.xml
 - https://developers.google.com/maps?hl=ko
 
 
